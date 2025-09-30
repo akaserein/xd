@@ -4,75 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reducing Plastic Pollution</title>
-  <!-- Google Fonts for iOS-style look -->
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- GSAP CDN for animations -->
+
+  <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'SF Pro Display', sans-serif;
-      scroll-behavior: smooth;
-    }
-    body {
-      color: #111;
-      overflow-x: hidden;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'SF Pro Display', sans-serif; }
+    html, body { scroll-behavior: smooth; background: #000; color: #fff; overflow-x: hidden; }
+
     section {
       min-height: 100vh;
+      padding: 4rem 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 4rem;
-      position: relative;
       text-align: center;
-      background: linear-gradient(135deg, #f8f9fb, #e3e6ec);
+      background: linear-gradient(135deg, #1a001f, #000, #330033);
+      color: #fff;
     }
+
     h1, h2 {
       margin-bottom: 1rem;
+      text-shadow: 0 2px 10px rgba(255, 0, 255, 0.5);
     }
-    h1 { font-size: 3rem; font-weight: 700; }
-    h2 { font-size: 2rem; font-weight: 600; }
-    p { max-width: 800px; font-size: 1.1rem; line-height: 1.6; opacity: 0.9; }
-    
-    /* Glassmorphism cards */
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2rem; }
+
+    p { max-width: 900px; margin: 0.5rem auto; font-size: 1.1rem; line-height: 1.7; opacity: 0.95; }
+
+    /* Cards */
     .card {
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(20px);
-      border-radius: 24px;
-      padding: 2rem;
+      background: rgba(255, 0, 255, 0.1);
+      border: 1px solid rgba(255, 105, 180, 0.3);
+      border-radius: 20px;
+      padding: 1.5rem;
       margin: 1rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
       transition: transform 0.3s ease;
+      max-width: 600px;
     }
     .card:hover { transform: translateY(-10px) scale(1.05); }
 
-    /* Navigation */
+    /* Navbar */
     nav {
       position: fixed;
       top: 20px; left: 50%;
       transform: translateX(-50%);
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,105,180,0.4);
+      border-radius: 25px;
       padding: 10px 20px;
       display: flex;
       gap: 15px;
       z-index: 1000;
+      backdrop-filter: blur(10px);
     }
     nav a {
       text-decoration: none;
       font-weight: 600;
-      color: #111;
+      color: #fff;
+      font-size: 0.9rem;
       transition: color 0.3s;
     }
-    nav a:hover { color: #007aff; }
+    nav a:hover { color: #ff4dff; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      p { font-size: 1rem; padding: 0 1rem; }
+      nav { flex-wrap: wrap; gap: 10px; font-size: 0.8rem; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Nav -->
+  <!-- Navbar -->
   <nav>
     <a href="#hero">Home</a>
     <a href="#problem">Problem</a>
@@ -83,72 +95,70 @@
     <a href="#conclusion">End</a>
   </nav>
 
-  <!-- Slides -->
+  <!-- Sections -->
   <section id="hero">
     <h1>Reducing Plastic Pollution</h1>
-    <p>Together towards a Viksit & Atmanirbhar Bharat 🌍</p>
+    <p>Towards a Viksit & Atmanirbhar Bharat 🌍. Together, we can reduce the harmful effects of plastics and build a sustainable future.</p>
   </section>
 
   <section id="problem">
     <h2>The Problem</h2>
-    <p>Every year, over 8 million tons of plastic enter our oceans. Plastics take hundreds of years to decompose, harming marine life and ecosystems.</p>
+    <p>Plastic pollution has become one of the most pressing environmental issues of our time. Non-biodegradable plastics accumulate in landfills, choke our water bodies, and release microplastics into the environment. Every year, millions of animals die due to ingestion of plastic waste. Moreover, humans indirectly consume plastic particles through food and water, leading to potential health hazards.</p>
   </section>
 
   <section id="impact">
     <h2>Impact on Environment</h2>
     <div class="card">
       <h3>🌊 Oceans</h3>
-      <p>Marine animals ingest plastic waste leading to health hazards.</p>
+      <p>Marine ecosystems face catastrophic impacts. Sea turtles, fish, and seabirds often mistake plastic for food, leading to injuries and deaths. Coral reefs are suffocated by plastic debris.</p>
     </div>
     <div class="card">
       <h3>🏞 Land</h3>
-      <p>Plastic pollution damages soil fertility and affects agriculture.</p>
+      <p>Soil fertility reduces drastically when plastics break down into microplastics, blocking nutrient absorption by crops. Farmlands get degraded, impacting food production and farmers' income.</p>
     </div>
     <div class="card">
       <h3>🌬 Air</h3>
-      <p>Burning plastics release toxic gases affecting health and climate.</p>
+      <p>Burning plastics release toxic chemicals such as dioxins and furans, contributing to air pollution, respiratory diseases, and climate change.</p>
     </div>
   </section>
 
   <section id="solutions">
     <h2>Solutions & Alternatives</h2>
-    <div class="card"><h3>Biodegradable Materials</h3><p>Switching to eco-friendly packaging.</p></div>
-    <div class="card"><h3>Recycling</h3><p>Encouraging circular economy for plastics.</p></div>
-    <div class="card"><h3>Awareness</h3><p>Community-led campaigns and education.</p></div>
+    <div class="card"><h3>Biodegradable Materials</h3><p>Promoting materials made from corn starch, jute, banana leaves, and biodegradable polymers as alternatives to single-use plastics.</p></div>
+    <div class="card"><h3>Recycling & Circular Economy</h3><p>Encouraging segregation at source, advanced recycling plants, and promoting re-use of plastic materials to minimize waste generation.</p></div>
+    <div class="card"><h3>Community Awareness</h3><p>Awareness campaigns, school programs, and public participation can reduce plastic dependency and encourage eco-friendly habits.</p></div>
   </section>
 
   <section id="stem">
     <h2>Role of STEM</h2>
-    <p>Science, Technology, Engineering & Mathematics enable innovative solutions like bioplastics, AI-driven waste management, and green tech.</p>
+    <p>STEM (Science, Technology, Engineering, and Mathematics) provides the foundation to tackle plastic pollution:</p>
+    <ul style="text-align:left; max-width:800px; margin:1rem auto;">
+      <li><b>Science:</b> Researching biodegradable and bio-based materials.</li>
+      <li><b>Technology:</b> Innovations in waste segregation, AI-driven recycling, and smart bins.</li>
+      <li><b>Engineering:</b> Designing efficient waste management infrastructure and machinery.</li>
+      <li><b>Mathematics:</b> Data modeling to track waste generation, optimize logistics, and predict future trends.</li>
+    </ul>
   </section>
 
   <section id="initiative">
     <h2>Our Initiative</h2>
-    <p>STEM for Viksit and Atmanirbhar Bharat focuses on creating a sustainable future by reducing plastic use and developing eco-friendly innovations.</p>
+    <p>This seminar aims to showcase projects and models under the theme "STEM for Viksit and Atmanirbhar Bharat." By focusing on reducing plastic pollution, we encourage students to present innovative solutions, from biodegradable alternatives to futuristic waste management systems, ensuring a cleaner and greener India.</p>
   </section>
 
   <section id="conclusion">
     <h2>Be the Change 🌱</h2>
-    <p>Together we can build a plastic-free tomorrow. Reduce. Reuse. Recycle.</p>
+    <p>Plastic pollution cannot be solved by one person alone, but every individual can contribute. Say NO to single-use plastics, promote recycling, and support sustainable alternatives. Together, we can build a plastic-free tomorrow and ensure a healthy planet for future generations.</p>
   </section>
 
-  <script>
-    // GSAP animations on scroll
-    gsap.utils.toArray("section").forEach((sec, i) => {
-      gsap.from(sec.children, {
-        y: 50, opacity: 0, duration: 1, stagger: 0.2,
-        scrollTrigger: {
-          trigger: sec,
-          start: "top 80%"
-        }
-      });
-    });
-  </script>
-
-  <!-- ScrollTrigger Plugin CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Animations -->
   <script>
     gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray("section").forEach((sec) => {
+      gsap.from(sec.children, {
+        y: 50, opacity: 0, duration: 1, stagger: 0.3,
+        scrollTrigger: { trigger: sec, start: "top 80%" }
+      });
+    });
   </script>
 </body>
 </html>
