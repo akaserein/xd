@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reducing Plastic Pollution</title>
+  <!-- Google Fonts for iOS-style look -->
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- GSAP CDN for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'SF Pro Display', sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      color: #111;
+      overflow-x: hidden;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem;
+      position: relative;
+      text-align: center;
+      background: linear-gradient(135deg, #f8f9fb, #e3e6ec);
+    }
+    h1, h2 {
+      margin-bottom: 1rem;
+    }
+    h1 { font-size: 3rem; font-weight: 700; }
+    h2 { font-size: 2rem; font-weight: 600; }
+    p { max-width: 800px; font-size: 1.1rem; line-height: 1.6; opacity: 0.9; }
+    
+    /* Glassmorphism cards */
+    .card {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 2rem;
+      margin: 1rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-10px) scale(1.05); }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 20px; left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 10px 20px;
+      display: flex;
+      gap: 15px;
+      z-index: 1000;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #111;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #007aff; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#problem">Problem</a>
+    <a href="#impact">Impact</a>
+    <a href="#solutions">Solutions</a>
+    <a href="#stem">STEM</a>
+    <a href="#initiative">Initiative</a>
+    <a href="#conclusion">End</a>
+  </nav>
+
+  <!-- Slides -->
+  <section id="hero">
+    <h1>Reducing Plastic Pollution</h1>
+    <p>Together towards a Viksit & Atmanirbhar Bharat 🌍</p>
+  </section>
+
+  <section id="problem">
+    <h2>The Problem</h2>
+    <p>Every year, over 8 million tons of plastic enter our oceans. Plastics take hundreds of years to decompose, harming marine life and ecosystems.</p>
+  </section>
+
+  <section id="impact">
+    <h2>Impact on Environment</h2>
+    <div class="card">
+      <h3>🌊 Oceans</h3>
+      <p>Marine animals ingest plastic waste leading to health hazards.</p>
+    </div>
+    <div class="card">
+      <h3>🏞 Land</h3>
+      <p>Plastic pollution damages soil fertility and affects agriculture.</p>
+    </div>
+    <div class="card">
+      <h3>🌬 Air</h3>
+      <p>Burning plastics release toxic gases affecting health and climate.</p>
+    </div>
+  </section>
+
+  <section id="solutions">
+    <h2>Solutions & Alternatives</h2>
+    <div class="card"><h3>Biodegradable Materials</h3><p>Switching to eco-friendly packaging.</p></div>
+    <div class="card"><h3>Recycling</h3><p>Encouraging circular economy for plastics.</p></div>
+    <div class="card"><h3>Awareness</h3><p>Community-led campaigns and education.</p></div>
+  </section>
+
+  <section id="stem">
+    <h2>Role of STEM</h2>
+    <p>Science, Technology, Engineering & Mathematics enable innovative solutions like bioplastics, AI-driven waste management, and green tech.</p>
+  </section>
+
+  <section id="initiative">
+    <h2>Our Initiative</h2>
+    <p>STEM for Viksit and Atmanirbhar Bharat focuses on creating a sustainable future by reducing plastic use and developing eco-friendly innovations.</p>
+  </section>
+
+  <section id="conclusion">
+    <h2>Be the Change 🌱</h2>
+    <p>Together we can build a plastic-free tomorrow. Reduce. Reuse. Recycle.</p>
+  </section>
+
+  <script>
+    // GSAP animations on scroll
+    gsap.utils.toArray("section").forEach((sec, i) => {
+      gsap.from(sec.children, {
+        y: 50, opacity: 0, duration: 1, stagger: 0.2,
+        scrollTrigger: {
+          trigger: sec,
+          start: "top 80%"
+        }
+      });
+    });
+  </script>
+
+  <!-- ScrollTrigger Plugin CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+  </script>
+</body>
+</html>
